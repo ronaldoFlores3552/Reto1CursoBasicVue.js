@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto 1 Curso Basic Vue</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    
+    <div id="app">
+        <h1>
+          Mis Cursos de Platzi💚
+        </h1>
+
+        <form class="header__search">
+            <input type="text" v-model="tituloCurso" placeholder="Titulo del curso"
+            class="form-control"
+            aria-label="Example text with button addon" aria-describedby="button-addon1"
+            />
+
+            <input type="number" v-model="horas" placeholder="Horas"
+            class="form-control"
+            aria-label="Example text with button addon" aria-describedby="button-addon1"
+            />
+            <button @:click="addCourse" class="btn btn-outline-secondary">+</button>
+        </form>
+
+        </fieldset>
+
+        <div>
+          <div v-if="cursos==0">
+            <p class="red">Aun no has realizado cursos</p>
+          </div>
+
+          <div v-else>
+            <h3>Lista de Cursos</h3>
+            <ol>
+              <li v-for="c in cursos"
+              :key="c.titulo">
+                
+                {{c.titulo}}, con {{c.horas}} horas
+                </li>
+            </ol>
+            <hr/>
+            
+            <p>
+              Llevo <strong>{{ totalTime }}</strong> horas aprendiendo en Platzi.
+              <b>#NuncaParesDeAprender 💚</b>
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</html>
+
+
