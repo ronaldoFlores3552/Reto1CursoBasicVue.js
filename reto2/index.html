@@ -1,5 +1,26 @@
-<div id="app">
-    <button>Show Modal</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="app">
+    <button @click="toggleModal">Show Modal</button>
     
-    <modal></modal>
+    <modal
+      v-show="showModal"
+      @close="toggleModal"
+      :title="title"
+    >
+    <p slot="body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi natus deserunt et vitae fuga, accusamus, quod eius, asperiores autem alias doloremque dicta eos eaque voluptatibus maiores ducimus illum velit atque.</p>
+    </modal>
   </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="app.js"></script>
+</html>
+
